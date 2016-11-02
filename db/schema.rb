@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20161102064827) do
     t.string   "time_zone",                 default: "UTC"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.index ["time_zone"], name: "index_locations_on_time_zone", unique: true, using: :btree
+    t.index ["name"], name: "index_locations_on_name", unique: true, using: :btree
   end
 
   create_table "time_stamps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

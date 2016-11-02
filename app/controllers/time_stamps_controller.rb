@@ -1,4 +1,5 @@
 class TimeStampsController < ApplicationController
+  before_action :set_time_stamp, only: [:show, :update, :destroy]
 
   # GET /time_stamps or /time_stamps?location=location_name
   def index
@@ -18,7 +19,17 @@ class TimeStampsController < ApplicationController
     end
   end
 
+  # GET /time_stamps/1
+  def show
+    render json: @time_stamp
+  end
+
   private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_time_stamp
+    @time_stamp = TimeStamp.find(params[:id])
+  end
 
   # Only allow a trusted parameter "white list" through.
   def time_stamp_params
